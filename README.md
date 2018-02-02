@@ -67,6 +67,26 @@ In the view, methods are written in `{{ }}`, like this:
 {{ yourMethod() }}
 ```
 
+### Computed properties
+
+Computed rerender only when necessary. Avoiding using ressources when useless.
+
+```javascript
+new Vue({
+  computed: {
+    yourComputedProperty: function() {
+      console.log('Define your method here');
+    },
+  }
+});
+```
+
+In the view, methods are written in `{{ }}`, like this:
+
+```html
+{{ yourComputedProperty }}
+```
+
 ### Directives
 
 #### Event Directive
