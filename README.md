@@ -69,13 +69,43 @@ In the view, methods are written in `{{ }}`, like this:
 
 ### Directives
 
-#### Events
+#### Event Directive
 
-Directives for events start with `v-on:` followed by the event and take the name of your mathod as value.
+Directives for events start with `v-on:` followed by the event and take the name of your mathod (without curly braces) as the value.
 
 ```html
 <input type="text" v-on:input="yourMethod">
 ```
 
+To access the data of your event in your method, use the object `target` from the event
 
+```javascript
+yourMethod: function(e) {
+  this.name = e.target.value;
+}
+```
 
+#### Bind Directive
+
+For dinamic attributes, use the `v-bind:` followed by the attribute you want to bind and take the variable (without curly braces) as the value.
+
+```html
+<a v-bind:href="yourVariable">My link</a>
+```
+
+#### Once Directive
+
+If you want the content of the element only render once and not changes if a variable get updated, you can use the directive `v-once`
+
+```html
+<h1 v-once>{{ yourVariable }}</h1>
+```
+
+#### HTML Directive
+
+To output some HTML in a element, use the directive `v-html` with the your variable as the value.
+
+```html
+<!-- yourVariable = '<a href="http://google.com">Google</a>' -->
+<p v-html="yourVariable"></p>
+```
