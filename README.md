@@ -35,7 +35,7 @@ new Vue({
 });
 ```
 
-In HTML, variables are written in `{{ }}`, like this:
+In the view, variables are written in `{{ }}`, like this:
 
 ```html
 {{ yourVariable }}
@@ -59,6 +59,12 @@ new Vue({
     },
   }
 });
+```
+
+In the view, methods are written in `{{ }}`, like this:
+
+```html
+{{ yourMethod() }}
 ```
 
 ### Directives
