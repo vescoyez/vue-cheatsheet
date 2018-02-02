@@ -25,7 +25,7 @@ new Vue({
 
 ### Variables
 
-In the JS variables are defined in the `data` object
+In the JS, variables are defined in the `data` object.
 
 ```javascript
 new Vue({
@@ -41,7 +41,7 @@ In the view, variables are written in `{{ }}`, like this:
 {{ yourVariable }}
 ```
 
-To access a variable inside a **method**, refer to `this`
+To access a variable inside a **method**, refer to `this`.
 
 ```javascript
 this.yourVariable = 'new value';
@@ -49,7 +49,7 @@ this.yourVariable = 'new value';
 
 ### Methods
 
-In the JS methods are defined in the `methods` object
+In the JS methods are defined in the `methods` object.
 
 ```javascript
 new Vue({
@@ -112,9 +112,11 @@ Vue provides some modifiers on events to quickly access some fonctionality. To u
 <button v-on:click.stop="">Stop click propagation</button>
 ```
 
-The modifiers:
-- stop: e.stopPropagation
-- prevent: e.preventDefault
+[List of all event modifiers](https://vuejs.org/v2/guide/events.html#Event-Modifiers)
+
+Vue also provides modifiers for key events allowing to access quickly a specific key on key events.
+
+[List of all key modifiers](https://vuejs.org/v2/guide/events.html#Key-Modifiers)
 
 #### Bind Directive
 
@@ -126,7 +128,7 @@ For dinamic attributes, use the `v-bind:` followed by the attribute you want to 
 
 #### Once Directive
 
-If you want the content of the element only render once and not changes if a variable get updated, you can use the directive `v-once`
+If you want the content of the element only render once and not changes if a variable get updated, you can use the directive `v-once`.
 
 ```html
 <h1 v-once>{{ yourVariable }}</h1>
@@ -139,4 +141,13 @@ To output some HTML in a element, use the directive `v-html` with the your varia
 ```html
 <!-- yourVariable = '<a href="http://google.com">Google</a>' -->
 <p v-html="yourVariable"></p>
+```
+
+#### Two-way data binding directive
+
+For two-way data binding, use the directive `v-model`.
+
+```html
+<input type="text" v-model="name">
+<p>{{ name }}</p>
 ```
