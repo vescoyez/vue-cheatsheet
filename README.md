@@ -87,14 +87,30 @@ In the view, methods are written in `{{ }}`, like this:
 {{ yourComputedProperty }}
 ```
 
+### Watch
+
+To watch a variable, use the `watch` object.
+
+```javascript
+new Vue({
+  watch: {
+    yourVariable: function(value) {
+      console.log('Define your method here');
+    },
+  }
+});
+```
+
 ### Directives
 
 #### Event Directive
 
-Directives for events start with `v-on:` followed by any DOM event and your method (without curly braces) as the value.
+Directives for events start with `v-on:` or `@` followed by any DOM event and your method (without curly braces) as the value.
 
 ```html
 <input type="text" v-on:input="yourMethod">
+<!-- OR -->
+<input type="text" @input="yourMethod">
 ```
 
 To access the data of your event in your method, use the object `target` on the event object.
@@ -108,13 +124,13 @@ yourMethod: function(e) {
 You can also pass arguments to your method.
 
 ```html
-<input type="text" v-on:input="yourMethod(argument)">
+<input type="text" @input="yourMethod(argument)">
 ```
 
 If you need to use both custom argument and the event object, you the Vue variable `$event` for the event object.
 
 ```html
-<input type="text" v-on:input="yourMethod($event, argument)">
+<input type="text" @input="yourMethod($event, argument)">
 ```
 
 ```javascript
@@ -129,7 +145,7 @@ yourMethod: function(e, argument) {
 Vue provides some modifiers on events to quickly access some fonctionality. To use them add a `.` after the DOM event followed by the modifier.
 
 ```
-<button v-on:click.stop="">Stop click propagation</button>
+<button @click.stop="">Stop click propagation</button>
 ```
 
 [List of all event modifiers](https://vuejs.org/v2/guide/events.html#Event-Modifiers)
@@ -140,10 +156,12 @@ Vue also provides modifiers for key events allowing to access quickly a specific
 
 #### Bind Directive
 
-For dinamic attributes, use the `v-bind:` followed by the attribute you want to bind and take the variable (without curly braces) as the value.
+For dinamic attributes, use the `v-bind:` or `:` followed by the attribute you want to bind and take the variable (without curly braces) as the value.
 
 ```html
 <a v-bind:href="yourVariable">My link</a>
+<!-- OR -->
+<a :href="yourVariable">My link</a>
 ```
 
 #### Once Directive
