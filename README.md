@@ -21,9 +21,7 @@ new Vue({
 });
 ```
 
-## Syntax
-
-### Variables
+## Variables
 
 In the JS, variables are defined in the `data` object.
 
@@ -47,7 +45,7 @@ To access a variable inside a **method**, refer to `this`.
 this.yourVariable = 'new value';
 ```
 
-### Methods
+## Methods
 
 In the JS methods are defined in the `methods` object.
 
@@ -67,7 +65,7 @@ In the view, methods are written in `{{ }}`, like this:
 {{ yourMethod() }}
 ```
 
-### Computed properties
+## Computed properties
 
 Computed rerender only when necessary. Avoiding using ressources when useless.
 
@@ -87,7 +85,7 @@ In the view, methods are written in `{{ }}`, like this:
 {{ yourComputedProperty }}
 ```
 
-### Watch
+## Watch
 
 To watch a variable, use the `watch` object.
 
@@ -101,9 +99,9 @@ new Vue({
 });
 ```
 
-### Directives
+## Directives
 
-#### Event Directive
+### Event Directive
 
 Directives for events start with `v-on:` or `@` followed by any DOM event and your method (without curly braces) as the value.
 
@@ -140,7 +138,7 @@ yourMethod: function(e, argument) {
 }
 ```
 
-##### Modifiers
+#### Modifiers
 
 Vue provides some modifiers on events to quickly access some fonctionality. To use them add a `.` after the DOM event followed by the modifier.
 
@@ -154,7 +152,7 @@ Vue also provides modifiers for key events allowing to access quickly a specific
 
 [List of all key modifiers](https://vuejs.org/v2/guide/events.html#Key-Modifiers)
 
-#### Bind Directive
+### Bind Directive
 
 For dinamic attributes, use the `v-bind:` or `:` followed by the attribute you want to bind and take the variable (without curly braces) as the value.
 
@@ -164,7 +162,7 @@ For dinamic attributes, use the `v-bind:` or `:` followed by the attribute you w
 <a :href="yourVariable">My link</a>
 ```
 
-#### Once Directive
+### Once Directive
 
 If you want the content of the element only render once and not changes if a variable get updated, you can use the directive `v-once`.
 
@@ -172,7 +170,7 @@ If you want the content of the element only render once and not changes if a var
 <h1 v-once>{{ yourVariable }}</h1>
 ```
 
-#### HTML Directive
+### HTML Directive
 
 To output some HTML in a element, use the directive `v-html` with the your variable as the value.
 
@@ -181,11 +179,36 @@ To output some HTML in a element, use the directive `v-html` with the your varia
 <p v-html="yourVariable"></p>
 ```
 
-#### Two-way data binding directive
+### Two-way data binding directive
 
 For two-way data binding, use the directive `v-model`.
 
 ```html
 <input type="text" v-model="name">
 <p>{{ name }}</p>
+```
+
+## Style
+
+To style, use the *bind directive* `:class` or `:style`
+
+It's possible to attached a simple string as a class
+
+```html
+<div :class="'red'"></div>
+<!-- Will add red class -->
+```
+
+Or an object
+
+```html
+<div :class="{red: boolean}"></div>
+<!-- Will add red class if boolean is true -->
+```
+
+Or any combination into an array
+
+
+```html
+<div :class="[myVariable, {red: boolean}]"></div>
 ```
