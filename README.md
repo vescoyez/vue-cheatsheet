@@ -143,7 +143,7 @@ yourMethod: function(e, argument) {
 Vue provides some modifiers on events to quickly access some fonctionality. To use them add a `.` after the DOM event followed by the modifier.
 
 ```
-<button @click.stop="">Stop click propagation</button>
+<button @click.stop>Stop click propagation</button>
 ```
 
 [List of all event modifiers](https://vuejs.org/v2/guide/events.html#Event-Modifiers)
@@ -200,14 +200,31 @@ You can add an `v-else` statement that will be the opposite of the previous `v-i
 
 ```html
 <div v-if="condition"></div>
-<div v-else="condition"></div>
+<div v-else></div>
 ```
 
 You can also use the `v-else-if` statement for more complex conditions
 
 ```html
 <div v-if="condition"></div>
-<div v-else-if="condition"></div>
+<div v-else-if="otherCondition"></div>
+```
+
+You can also use the HTML5 `template` element to use your condition statements. The adventage of `template` element is that it won't output any unecessary elements.
+
+```html
+<template v-if="condition">
+  <h1>Title</h1>
+  <p>Content</p>
+</template>
+```
+
+### Show directive
+
+If you want to hide an element and not remove it, use the `v-show` directive
+
+```html
+<div v-show="condition"></div>
 ```
 
 ## Style
