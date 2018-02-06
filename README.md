@@ -227,6 +227,45 @@ If you want to hide an element and not remove it, use the `v-show` directive
 <div v-show="condition"></div>
 ```
 
+### Loop directive
+
+To output a list of elements, use `v-for`
+
+```html
+<!-- items = ['foo', 'bar', 'foobar'] -->
+<ul>
+  <li v-for="item in items">{{ item }}</li>
+</ul>
+```
+
+For the index, refer it as a second element between parenthesis
+
+
+```html
+<ul>
+  <li v-for="(item, index) in items">{{ index }} {{ item }}</li>
+</ul>
+```
+
+As the `v-if` directive, you can also use the `v-for` directive on `template` element.
+
+You can also loop over an object with `v-for`. The first argument will be the `value`, the second the `key` and the third one the `index`.
+
+```html
+<!-- person = {firstname: 'foo',lastname: 'bar',nationality: 'foobar'} -->
+<ul>
+  <li v-for="(value, key, index) in person">{{ key }}: {{ value }}</li>
+</ul>
+```
+
+To loop n times, use:
+
+```html
+<ul>
+  <li v-for="n in 10">{{ n }}</li>
+</ul>
+```
+
 ## Style
 
 To style, use the *bind directive* `:class` or `:style`
