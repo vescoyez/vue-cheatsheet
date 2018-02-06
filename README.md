@@ -188,6 +188,28 @@ For two-way data binding, use the directive `v-model`.
 <p>{{ name }}</p>
 ```
 
+### Condition directive
+
+To add condition to an element use `v-if`
+
+```html
+<div v-if="condition"></div>
+```
+
+You can add an `v-else` statement that will be the opposite of the previous `v-if` statement
+
+```html
+<div v-if="condition"></div>
+<div v-else="condition"></div>
+```
+
+You can also use the `v-else-if` statement for more complex conditions
+
+```html
+<div v-if="condition"></div>
+<div v-else-if="condition"></div>
+```
+
 ## Style
 
 To style, use the *bind directive* `:class` or `:style`
