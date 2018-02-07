@@ -290,3 +290,41 @@ Or any combination into an array
 ```html
 <div :class="[myVariable, {red: boolean}]"></div>
 ```
+
+## Ref
+
+You can access any DOM element adding a `ref` attribute to the element
+
+```html
+<div ref="yourElement"></div>
+```
+
+Then you can access it in or out the Vue instance
+
+```javascript
+this.$refs.yourElement
+```
+
+## Lifecycle events
+
+```javascript
+new Vue({
+  beforeCreate: function() {
+  },
+  created: function() {
+  },
+  beforeMount: function() {
+  },
+  mounted: function() {
+  },
+  beforeUpdate: function() {
+  },
+  updated: function() {
+  },
+  beforeDestroy: function() {
+  },
+  destroyed: function() {
+  },
+});
+```
+
